@@ -546,7 +546,7 @@ span.next:hover, span.prev:hover{
   margin-top: 40px;
   width: 400px;
   text-align: center;
-  background-image: url(images/gimg11.jpeg);
+  background-image: url(gimg11.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -957,7 +957,7 @@ span.next:hover, span.prev:hover{
   flex-direction: column;
   min-height: 30vh;
   width: 100%;
-  background: url(images/signeture-bg.jpg) no-repeat;
+  background: url(signeture-bg.jpg) no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -1228,7 +1228,7 @@ h2 {
   margin: 0 auto;
   overflow: hidden;
   position: relative;
-  background:url(images/p01.jpg) no-repeat;
+  background:url(p01.jpg) no-repeat;
   background-position: center;
   background-size: cover;
   min-height: 60vh;
