@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>ROSE-Home</title>
+   <link rel="stylesheet" href="style.css">
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<!-- new website started on 26/06/2024 -->
+
+<body>
+   <header class="header">
+      <nav class="nav container">
+         <div class="nav__data">
+            <a href="index.html" class="nav__logo">
+               <img src="images/gimg07.jpeg" alt="image_not_available">
+            </a>
+            <div class="nav__toggle" id="nav-toggle">
+               <i class="ri-menu-line nav__burger"></i>
+               <i class="ri-close-line nav__close"></i>
+            </div>
+         </div>
+
+         <!--=============== NAV MENU ===============-->
+         <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+               <li><a href="about.html" class="nav__link">About Us</a></li>
+
+               <li><a href="ourblogs.html" class="nav__link">Our Blogs</a></li>
+
+               <!--=============== DROPDOWN 1 ===============-->
+               <li class="dropdown__item">
+                  <div class="nav__link">
+                     Our Outlets <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                  </div>
+
+                  <ul class="dropdown__menu">
+                     <li class="dropdown__subitem">
+                        <div class="dropdown__link">
+                           <i class="ri-bar-chart-line"></i>Outlet 1<i
+                                 class="ri-add-line dropdown__add"></i>
+                        </div>
+
+                        <ul class="dropdown__submenu">
+                           <li>
+                              <a href="outlethome.html#m1" class="dropdown__sublink">
+                                 <i class="ri-file-list-line"></i>Menu
+                              </a>
+                           </li>
+                           <li>
+                              <a href="outlethome.html#t12" class="dropdown__sublink">
+                                 <i class="ri-refund-2-line"></i>Testimonial
+                              </a>
+                           </li>
+                           <li>
+                              <a href="outlethome.html#g1" class="dropdown__sublink">
+                                 <i class="ri-refund-2-line"></i>Gallery
+                              </a>
+                           </li>
+                             <!-- <li>
+                                <a href="#" class="dropdown__sublink">
+                                   <i class="ri-refund-2-line"></i>Team paper writing
+                                </a>
+                             </li>
+                             <li>
+                                <a href="#" class="dropdown__sublink">
+                                   <i class="ri-refund-2-line"></i>Academic writing
+                                </a>
+                             </li>
+                             <li>
+                                <a href="#" class="dropdown__sublink">
+                                   <i class="ri-refund-2-line"></i>Essay writing help
+                                </a>
+                             </li>
+                             <li>
+                                <a href="#" class="dropdown__sublink">
+                                   <i class="ri-refund-2-line"></i>Narrative writing
+                                </a>
+                             </li>
+                             <li>
+                                <a href="#" class="dropdown__sublink">
+                                   <i class="ri-refund-2-line"></i>Argumentative essay writing
+                                </a>
+                             </li>
+                             <li>
+                                <a href="#" class="dropdown__sublink">
+                                   <i class="ri-refund-2-line"></i> Scholarship essay writing
+                                </a>
+                             </li>
+                             <li>
+                                <a href="#" class="dropdown__sublink">
+                                   <i class="ri-refund-2-line"></i> Analytical essay writing
+                                </a>
+                             </li>
+                             <li>
+                                <a href="#" class="dropdown__sublink">
+                                   <i class="ri-refund-2-line"></i> Persuasive essay
+                                </a>
+                             </li>
+                             <li>
+                                <a href="#" class="dropdown__sublink">
+                                   <i class="ri-refund-2-line"></i> Expository essay
+                                </a>
+                             </li>
+                             <li>
+                                <a href="#" class="dropdown__sublink">
+                                   <i class="ri-refund-2-line"></i> Descriptive essay
+                                </a>
+                             </li>-->
+                          </ul> 
+                     </li>
+
+                     <li class="dropdown__subitem">
+                        <div class="dropdown__link">
+                           <i class="ri-bar-chart-line"></i>Outlet 2<i class="ri-add-line dropdown__add"></i>
+                        </div>
+
+                        <ul class="dropdown__submenu">
+                           <li>
+                              <a href="outlethome.html#m1" class="dropdown__sublink">
+                                 <i class="ri-file-list-line"></i>Menu
+                              </a>
+                           </li>
+                           <li>
+                              <a href="outlethome.html#t12" class="dropdown__sublink">
+                                 <i class="ri-refund-2-line"></i>Testimonial
+                              </a>
+                           </li>
+                           <li>
+                              <a href="outlethome.html#g1" class="dropdown__sublink">
+                                 <i class="ri-refund-2-line"></i>Gallery
+                              </a>
+                           </li>
+                             <!-- </li>
+                                <a href="#" class="dropdown__sublink">
+                                   <i class="ri-file-list-line"></i> Dissertation Writing
+                                </a>
+                             </li> -->
+                          </ul> 
+                     </li>
+                     <li class="dropdown__subitem">
+                        <div class="dropdown__link">
+                           <i class="ri-bar-chart-line"></i>Outlet 3<i class="ri-add-line dropdown__add"></i>
+                        </div>
+
+                        <ul class="dropdown__submenu">
+                           <li>
+                              <a href="outlethome.html#m1" class="dropdown__sublink">
+                                 <i class="ri-file-list-line"></i>Menu
+                              </a>
+                           </li>
+                           <li>
+                              <a href="outlethome.html#t12" class="dropdown__sublink">
+                                 <i class="ri-refund-2-line"></i>Testimonial
+                              </a>
+                           </li>
+                           <li>
+                              <a href="outlethome.html#g1" class="dropdown__sublink">
+                                 <i class="ri-refund-2-line"></i>Gallery
+                              </a>
+                           </li>
+                             <!-- </li>
+                                <a href="#" class="dropdown__sublink">
+                                   <i class="ri-file-list-line"></i> Dissertation Writing
+                                </a>
+                             </li> -->
+                          </ul> 
+                     </li>
+
+                     <!--=============== DROPDOWN SUBMENU ===============-->
+                     <li class="dropdown__subitem">
+                        <div class="dropdown__link">
+                           <i class="ri-bar-chart-line"></i> Outlet 4<i class="ri-add-line dropdown__add"></i>
+                        </div>
+
+                        <ul class="dropdown__submenu">
+                           <li>
+                              <a href="outlethome.html#m1" class="dropdown__sublink">
+                                 <i class="ri-file-list-line"></i>Menu
+                              </a>
+                           </li>
+                           <li>
+                              <a href="outlethome.html#t12" class="dropdown__sublink">
+                                 <i class="ri-refund-2-line"></i>Testimonial
+                              </a>
+                           </li>
+                           <li>
+                              <a href="outlethome.html#g1" class="dropdown__sublink">
+                                 <i class="ri-refund-2-line"></i>Gallery
+                              </a>
+                           </li>
+                           <!-- <li>
+                              <a href="#" class="dropdown__sublink">
+                                 <i class="ri-refund-2-line"></i>Pay someone do my homework
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#" class="dropdown__sublink">
+                                 <i class="ri-refund-2-line"></i>Coursework help
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#" class="dropdown__sublink">
+                                 <i class="ri-refund-2-line"></i>Thesis writing help
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#" class="dropdown__sublink">
+                                 <i class="ri-refund-2-line"></i>Powerpoint presentation services
+                              </a>
+                           </li> -->
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               <li><a href="contact.html" class="nav__link">Contact</a></li>
+               <!--=============== DROPDOWN 2 ===============-->
+               <li><a href="ourculture.html" class="nav__link">Our Culture</a></li>
+
+                  <!-- <ul class="dropdown__menu">
+                       <li>
+                          <a href="#" class="dropdown__link">
+                             <i class="ri-user-line"></i> Samples
+                          </a>
+                       </li>
+  
+                       <li>
+                          <a href="#" class="dropdown__link">
+                             <i class="ri-lock-line"></i> Blogs
+                          </a>
+                       </li>
+  
+                       <li>
+                          <a href="#" class="dropdown__link">
+                             <i class="ri-message-3-line"></i> Answers
+                          </a>
+                       </li>
+                    </ul> -->
+               </li>
+
+            </ul>
+         </div>
+      </nav>
+   </header>
+    <!-----------------sec-01 starts here-------------------->
+    <section class="sec-011">
+      <div class="slide-container">
+	
+         <div class="slides">
+            <img src="images/bcg02.jpg" class="active">
+            <img src="images/bcg03.jpg">
+            <img src="images/bcg2.avif">
+            <img src="images/bcg01.jpg">
+            <img src="images/bcg1.jpg">
+         </div>
+      
+         <div class="buttons">
+            <span class="next">&#10095;</span>
+            <span class="prev">&#10094;</span>
+         </div>
+      
+         <div class="dotsContainer">
+            <div class="dot active" attr='0' onclick="switchImage(this)"></div>
+            <div class="dot" attr='1' onclick="switchImage(this)"></div>
+            <div class="dot" attr='2' onclick="switchImage(this)"></div>
+            <div class="dot" attr='3' onclick="switchImage(this)"></div>
+            <div class="dot" attr='4' onclick="switchImage(this)"></div>
+         </div>
+      
+      </div>
+      
+   
+</section>
+   <!-----------------sec-01 ends here-------------------->
+  <section class="sec-00">
+      <div class="sec-00heading">
+         <h1>Our Outlets</h1>
+      </div>
+      <a href="outlethome.html">
+         <div class="outlet">
+            <div class="outletimage">
+               <div class="outlettext">
+                  <h2>The Rose-Phoolbagan</h2>
+                  <p style="color: #fff;">C.I.T. Road, Kankurgachi</p>
+                  <button class="btn7"><a href="outlethome.html">Click for More</a></button>
+               </div>
+            </div>
+         </div>
+      </a>
+      <a href="outlet2.html">
+         <div class="outlet" style="background-image: url(images/fd3.jpg);">
+            <div class="outletimage">
+               <div class="outlettext">
+                  <h2>The Rose-Lake Town</h2>
+                  <p style="color: #fff;">Lake Town, South Dumdum</p>
+                  <button class="btn7"><a href="outlet2.html">Click for More</a></button>
+               </div>
+            </div>
+         </div>
+      </a>
+      <a href="outlet3.html">
+         <div class="outlet" style="background-image: url(images/fd4.jpg);">
+            <div class="outletimage">
+               <div class="outlettext">
+                  <h2>The Rose-Kankurgachi</h2>
+                  <p style="color: #fff;">CIT Road, Kolkata-700054</p>
+                  <button class="btn7"><a href="outlet3.html">Click for More</a></button>
+               </div>
+            </div>
+         </div>
+      </a>
+      <a href="outlet4.html">
+         <div class="outlet" style="background-image: url(images/fd5.jpg);">
+            <div class="outletimage">
+               <div class="outlettext">
+                  <h2>Outlet4</h2>
+                  <p style="color: #fff;">Address goes here</p>
+                  <button class="btn7"><a href="outlet4.html">Click for More</a></button>
+               </div>
+            </div>
+         </div>
+      </a>
+   </section>
+   <section class="sec-02">
+      <div class="left-container02">
+         <div class="content1">
+            <div class="lefttextcontainer02">
+               <h5>Welcome to </h5>
+               <h2>The Rose</h2>
+               <p>The Rose Kitchen is a delightful fusion of a confectionery and a multicuisine restaurant, proudly serving Kolkata since 1996. With four vibrant outlets spread across the city, we offer an inviting atmosphere where culinary excellence meets warm hospitality. Our menu boasts a diverse range of delectable dishes, from traditional Indian classics to innovative contemporary creations, ensuring a memorable dining experience for every guest. At The Rose Kitchen, we are committed to quality, authenticity, and the joy of sharing great food with great company. Join us to indulge in flavors that tell a story of passion and tradition.</p>
+            </div>
+            
+         </div>
+         
+      </div>
+      <div class="right-container02">
+         <div class="content2">
+            <div class="image03">
+               <img src="images/gimg11.jpeg" alt="image_not_available" srcset="">
+            </div>
+            
+         </div>
+      </div>
+   </section>
+    <section class="sec-03">
+      <div class="sec-03heading">
+         <h4>Our Menu</h4>
+         <h2 class="lined">Get Relax. Eat</h2>
+         <p>"Experience the best in dining with our curated menu"</p>
+      </div>
+
+      <div class="menutext">
+         <div class="menuleftcontainer">
+            <div class="menuleftcontent">
+               <h2>Soups</h2>
+               <h3>Tomato Soup</h3>
+               <p>Tomato</p>
+            </div>
+            <div class="menuleftcontent">
+               <h3>Hot & Sour Soup</h3>
+               <p>Veg/Non-Veg</p>
+            </div>
+            <div class="menuleftcontent">
+               <h3>SWEET CORN SOUP </h3>
+               <p>VEG/NONVEG</p>
+            </div>
+            <div class="menuleftcontent">
+               <h3>Chicken Manchow Soup</h3>
+               <p>NONVEG</p>
+            </div>
+         </div>
+         <div class="menuleftcontainer">
+            <div class="menuleftcontent">
+               <h2>Non Veg</h2>
+               <h3>CHICKEN TIKKA KEBAB</h3>
+               <p>Chicken/Non-veg</p>
+            </div>
+            <div class="menuleftcontent">
+               <h3>CHICKEN RESHMI KEBAB</h3>
+               <p>Chicken/Non-veg</p>
+            </div>
+            <div class="menuleftcontent">
+               <h3>FISH TIKKA</h3>
+               <p>Bhetki Fish/Non-veg</p>
+            </div>
+            <div class="menuleftcontent">
+               <h3>TANDOORI MURGH (FULL)</h3>
+               <p>Chicken/Non-veg</p>
+            </div>
+         </div>
+         
+         <div class="menurightcontainer">
+            <h2>Non-Veg</h2>
+            <div class="menuleftcontent">
+               <h3>CHICKEN RESHMI MASALA</h3>
+               <p>Chicken/Non-veg</p>
+            </div>
+            <div class="menuleftcontent">
+               <h3>CHICKEN BHARTA</h3>
+               <p>Chicken/Non-veg</p>
+            </div>
+            <div class="menuleftcontent">
+               <h3>CHICKEN BUTTER MASALA</h3>
+               <p>Chicken/Non-veg</p>
+            </div>
+            <div class="menuleftcontent">
+               <h3>MUTTON KASA </h3>
+               <p>Mutton/Non-veg</p>
+            </div>
+         </div>
+         <div class="menurightcontainer">
+            <h2>Beverages & Dessert</h2>
+            <div class="menuleftcontent">
+               <h3>COLD DRINKS</h3>
+               <p>Beverages</p>
+            </div>
+            <div class="menuleftcontent">
+               <h3>PACKAGE DRINKING</h3>
+               <p>Beverages</p>
+            </div>
+            <div class="menuleftcontent">
+               <h3>HOT GULAB JAMUN (2PCS)</h3>
+               <p>Sweet</p>
+            </div>
+            <div class="menuleftcontent">
+               <h3>Mishti Doi</h3>
+               <p>Sweet</p>
+            </div>
+         </div>
+         <div class="sec-03heading">
+            <a href="menulight.html"><button class="btn1 lines">VIEW ALL MENU</button></a>
+         </div>
+
+      </div>
+   </section> 
+   <section class="sec-04">
+      <div class="sec-04heading">
+         <h5>We Create Delicious Memories</h4>
+         <h2>Eat Good Feel Good</p>
+      </div>
+   </section>
+   <section class="sec-05">
+      <h5>The Rose</h5>
+      <h1>Our Speciality</h1>
+      <p>We provide a wide range of cuisines and dishes to choose from so that every foodie in town has their best experience with us.</p>
+      <div class="content-wrapper">
+         <div class="gallerycontainer">
+            <img src="images/indian.jpeg" alt="image_not_available" srcset="">
+         </div>
+         <div class="gallerycontainer">
+            <img src="images/chinese.jpeg" alt="image_not_available" srcset="">
+         </div>
+         <div class="gallerycontainer">
+            <img src="images/pastaandpizza.jpeg" alt="image_not_available" srcset="">
+         </div>
+         <div class="gallerycontainer">
+            <img src="images/southindian.jpeg" alt="image_not_available" srcset="">
+         </div>
+         <div class="gallerycontainer">
+            <img src="images/wrapsandrolls.jpeg" alt="image_not_available" srcset="">
+         </div>
+         <div class="gallerycontainer">
+            <img src="images/wrapsandrolls.jpeg" alt="image_not_available" srcset="">
+         </div>
+        
+      </div>
+   </section>
+       
+   <section class="testimonial-section">
+      <div class="testimonial-slider">
+          <div class="slide">
+              <div class="testimonial-content">
+                  <div class="stars">★★★★★</div>
+                  <p>The Rose Restaurant is a decade old restaurant situated at a 5min walking distance from Lake Town Clock Tower. They specialise in Indian and Chinese Cuisine. Their pastries are a must try! I recently visited this restaurant for a quick lunch. I had their stuffed tandoor aloo which was very delicious. Loved the pataya chicken, which had a hint of thai flavours.</p>
+                  <div class="testimonial-author">
+                      <img src="images/t01.png" alt="Aaquid Nasim">
+                      <h3>Swapnil Mondal</h3>
+                  </div>
+              </div>
+          </div>
+          <div class="slide">
+              <div class="testimonial-content">
+                  <div class="stars">★★★★★</div>
+                  <p>It's a perfect family place with good quality of food. It can improve it ambience but the Chinese is amazing. The staffs here are really polite.
+
+                     Vegetarian options: Some vegetarian food options to recommend are as follows:-
+                     Veg Gratin
+                     Aloo do Pyaza
+                     Chinese Bhel
+                     Noodles</p>
+                  <div class="testimonial-author">
+                      <img src="images/t02.png" alt="Arindam Goswami">
+                      <h3>Vishakha Goenka</h3>
+                  </div>
+              </div>
+          </div>
+          <div class="slide">
+              <div class="testimonial-content">
+                  <div class="stars">★★★★★</div>
+                  <p>Very Nice Restaurant. Good quality food also available here.
+                     Food: 5/5  |  Service: 5/5  |  Atmosphere: 5/5
+                     
+                     Recommended dishes
+                     Murg Tikka Kabab</p>
+                  <div class="testimonial-author">
+                      <img src="images/t03.jpg" alt="Mr Foodie Kolkata">
+                      <h3>Debasis Das</h3>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="navigation-dots"></div>
+  </section>
+   <section class="sec-08">
+      <div class="reservation-container">
+         <h2>Excellence</h2>
+         <p>We are blessed enough to be honoured with great awards from food critics and organizations all over the world.</p> 
+         <div class="apps">
+            <div class="z1"><a href="https://www.zomato.com/kolkata/the-rose-kankurgachi" target="_blank"><img src="images/Zomato_company_logo.png" alt="image_not_available" style="width: 300px;" height="100px"></a></div>
+            <div class="z1"><a href="https://www.swiggy.com/city/kolkata/the-rose-restaurant-lake-town-lake-town-rest11619" target="_blank"><img src="images/swigy.png" alt="image_not_available" style="width: 300px;" height="100px"></a></div>
+            <div class="z1"><a href="https://www.justdial.com/Kolkata/The-Rose-Restaurant-Near-Daffodill-Nursing-Home-Laketown/033PXX33-XX33-110210165224-H6Z1_BZDET" target="_blank"><img src="images/justdial.png" alt="image_not_available" style="width: 300px;" height="100px"></a></div>
+         </div>
+         <p id="ph">+91 82408 76066</p>
+      </div>
+      
+   </section>
+   <footer class="footer1">
+      <div class="rows">
+         <div class="row1">
+            <h2>The Rose</h2>
+            <div class="col1">
+               <p>The Rose is not just a place to eat; it’s an experience that tantalizes your taste buds and warms your heart. Nestled in the vibrant neighborhoods of Kolkata, The Rose offers a unique blend of culinary artistry and confectionary magic.</p>
+            </div>
+            <div class="social">
+               <a href="https://www.facebook.com/TheRoseKolkata/" target="_blank"><div><i class="fa-brands fa-facebook"></i></div></a>
+               <a href="https://www.instagram.com/the.rosekitchen/" target="_blank"><div><i class="fa-brands fa-instagram"></i></div></a>
+               <a href=""><div><i class="fa-brands fa-youtube"></i></div></a>
+               <a href=""><div><i class="fa-brands fa-x-twitter"></i></div></a>
+               <a href=""><div><i class="fa-brands fa-whatsapp"></i></div></a>
+            </div>
+         </div>
+         <div class="row1">
+            <h2>Our Location</h2>
+            <div class="col1">
+               <p id="lp"> P/348, CIT Rd Scheme 6M, Scheme 6M, Phool Bagan, Kankurgachi, Kolkata, West Bengal 700054</p>
+               <p>+91 82408 76066</p>
+               <a href="https://maps.app.goo.gl/9jk9VaBw3S11vC8u9" target="_blank">
+                  <p id="dp"><i class="fa-solid fa-location-dot"></i>Get Direction</p>
+               </a>
+            </div>
+         </div>
+         <div class="row1">
+            <h2>Quick Link</h2>
+            <div class="col2">
+               <ul>
+                  <li><a href="about.html">About Us</a></li>
+                  <li class="dropdown__item">
+                     <div class="dropdown__link" style="font-size: 1rem; margin: 0; padding: 0;">
+                        Our Outlets <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                     </div>
+                     <ul class="dropdown__menu">
+                        <li class="dropdown__subitem" >
+                           Outlet 1
+                           <ul class="dropdown__submenu">
+                              <li><a href="outlethome.html#m1">Menu</a></li>
+                              <li><a href="outlethome.html#t12">Testimonial</a></li>
+                              <li><a href="outlethome.html#g1">Gallery</a></li>
+                           </ul>
+                        </li>
+                        <li class="dropdown__subitem">
+                           Outlet 2
+                           <ul class="dropdown__submenu">
+                              <li><a href="outlethome.html#m1">Menu</a></li>
+                              <li><a href="outlethome.html#t12">Testimonial</a></li>
+                              <li><a href="outlethome.html#g1">Gallery</a></li>
+                           </ul>
+                        </li>
+                        <li class="dropdown__subitem">
+                           Outlet 3
+                           <ul class="dropdown__submenu">
+                              <li><a href="outlethome.html#m1">Menu</a></li>
+                              <li><a href="outlethome.html#t12">Testimonial</a></li>
+                              <li><a href="outlethome.html#g1">Gallery</a></li>
+                           </ul>
+                        </li>
+                        <li class="dropdown__subitem">
+                           Outlet 4
+                           <ul class="dropdown__submenu">
+                              <li><a href="outlethome.html#m1">Menu</a></li>
+                              <li><a href="outlethome.html#t12">Testimonial</a></li>
+                              <li><a href="outlethome.html#g1">Gallery</a></li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <li><a href="ourblogs.html">Our Blogs</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
+                  <li><a href="ourculture.html">Our Culture</a></li>
+               </ul>
+            </div>
+
+         </div>
+         <div class="row1">
+            <h2>Opening Hours</h2>
+            <div class="col3">
+               <span><i class="fa-solid fa-clock"></i>&nbsp;&nbsp;Everyday</span>
+               <p>12 PM to 10.30PM</p>
+            </div>
+
+         </div>
+      </div>
+      <hr>
+      <div class="copyright">
+         <div class="copy">Copyright © 2024 The Rose Kitchen</div>
+         <div class="copy2">Powered by Saraf Worldwide</div>
+         <a href="images/privacy.jpeg"><div class="copy2">Privacy Policy</div></a>
+         <a href="images/Terms and conditions.pdf"><div class="copy2">Terms & Conditions</div></a>
+         
+      </div>
+   </footer>
+   <script src="script.js"></script> 
+</body>
+
+</html>

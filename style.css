@@ -1,0 +1,1923 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+ 
+  /* overflow-x: hidden;
+  overflow-y: auto; */
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  position: relative;
+}
+
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.45rem;
+
+  /*========== Colors ==========*/
+  --black-color: hsl(220, 24%, 12%);
+  --black-color-light: hsl(220, 24%, 15%);
+  --black-color-lighten: hsl(220, 20%, 18%);
+  --white-color: #fff;
+
+  /*========== Font and typography ==========*/
+  --body-font: "Montserrat", sans-serif;
+  --normal-font-size: .938rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1024px) {
+  :root {
+    --normal-font-size: 1rem;
+  }
+}
+
+/* Increase the width of the "Services" dropdown menu */
+.dropdown__menu {
+  width: 200px;
+  /* Adjust this value as needed */
+}
+
+/* Additional styling for better alignment and visibility */
+.services-dropdown .dropdown__link,
+.services-dropdown .dropdown__sublink {
+  padding: 1.25rem 1.5rem;
+}
+
+.services-dropdown .dropdown__link:hover,
+.services-dropdown .dropdown__sublink:hover {
+  background-color: var(--black-color-lighten);
+}
+
+/*=============== BASE ===============*/
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 100%;
+  margin-inline: 1.5rem;
+}
+
+/*=============== HEADER ===============*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  text-align: center;
+  
+  width: 100%;
+  /* background-color: red; */
+  background-color: #e3010f;
+  z-index: var(--z-fixed);
+}
+
+/*=============== NAV ===============*/
+.nav {
+  height: var(--header-height);
+}
+
+.nav__logo,
+.nav__burger,
+.nav__close {
+  color: var(--white-color);
+}
+
+.nav__data {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  display: inline-flex;
+  align-items: center;
+  column-gap: .25rem;
+  font-weight: var(--font-semi-bold);
+}
+
+.nav__logo img {
+  font-weight: initial;
+  font-size: 1.25rem;
+  width: 200px;
+   padding:20px;
+   height: auto;
+}
+
+.nav__toggle {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.nav__burger,
+.nav__close {
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  inset: 0;
+  margin: auto;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: opacity .1s, transform .4s;
+}
+
+.nav__close {
+  opacity: 0;
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width: 1118px) {
+  .nav__menu {
+    position: absolute;
+    left: 0;
+    top: 2.5rem;
+    width: 100%;
+    height: calc(100vh - 3.5rem);
+    overflow: auto;
+    pointer-events: none;
+    opacity: 0;
+    transition: top .4s, opacity .3s;
+  }
+
+  .nav__menu::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .nav__list {
+    background-color: var(--black-color);
+    padding-top: 1rem;
+  }
+}
+
+.nav__link {
+  color: var(--white-color);
+  background-color: transparent;
+  font-weight: var(--font-semi-bold);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color .3s, color 0.3s ease 0.1s;
+}
+
+.nav__link:hover {
+  color: gray;
+  background-color: var(--black-color-light);
+}
+
+/* Show menu */
+.show-menu {
+  opacity: 1;
+  top: 3.5rem;
+  pointer-events: initial;
+}
+
+/* Show icon */
+.show-icon .nav__burger {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.show-icon .nav__close {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+/*=============== DROPDOWN ===============*/
+.dropdown__item {
+  cursor: pointer;
+}
+
+.dropdown__arrow {
+  font-size: 1.25rem;
+  font-weight: initial;
+  transition: transform .4s;
+}
+
+.dropdown__link,
+.dropdown__sublink {
+  padding: 1.25rem 1.25rem 1.25rem 2.5rem;
+  color: var(--white-color);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  column-gap: .5rem;
+  font-weight: var(--font-semi-bold);
+  transition: background-color .3s;
+}
+
+.dropdown__link i,
+.dropdown__sublink i {
+  font-size: 1.25rem;
+  font-weight: initial;
+}
+
+.dropdown__link:hover,
+.dropdown__sublink:hover {
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+.dropdown__menu,
+.dropdown__submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease-out;
+}
+
+/* Show dropdown menu & submenu */
+.dropdown__item:hover .dropdown__menu,
+.dropdown__subitem:hover > .dropdown__submenu {
+  max-height: 1000px;
+  transition: max-height .4s ease-in;
+  overflow: visible;
+}
+
+/* Rotate dropdown icon */
+.dropdown__item:hover .dropdown__arrow {
+  transform: rotate(180deg);
+}
+
+/*=============== DROPDOWN SUBMENU ===============*/
+.dropdown__add {
+  margin-left: auto;
+}
+
+.dropdown__sublink {
+  background-color: transparent;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  display: block;
+  color: var(--white-color);
+}
+
+.dropdown__sublink:hover {
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+.dropdown__submenu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown__submenu::-webkit-scrollbar-thumb {
+  background-color: var(--black-color);
+  border-radius: 4px;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 340px) {
+  .header {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+  }
+  .container {
+    margin-inline: 1rem;
+  }
+
+  .nav__link {
+    padding-inline: 1rem;
+  }
+  .nav__logo img{
+    width: fit-content;
+    height: auto;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1118px) {
+  .container {
+    margin-inline: auto;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav__toggle {
+    display: none;
+  }
+
+  .nav__list {
+    height: 100%;
+    display: flex;
+    column-gap: 3rem;
+  }
+
+  .nav__link {
+    height: 100%;
+    padding: 0;
+    justify-content: initial;
+    column-gap: .25rem;
+  }
+
+  .nav__link:hover {
+    background-color: transparent;
+  }
+
+  .dropdown__item,
+  .dropdown__subitem {
+    position: relative;
+  }
+
+  .dropdown__menu,
+  .dropdown__submenu {
+    max-height: initial;
+    overflow: initial;
+    position: absolute;
+    left: 0;
+    top: 6rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s, top .3s;
+  }
+
+  .dropdown__link,
+  .dropdown__sublink {
+    padding-inline: 1rem 3.5rem;
+    color: var(--white-color);
+  }
+
+  .dropdown__submenu {
+    position: absolute;
+    left: 100%;
+    top: .5rem;
+  }
+
+  /* Show dropdown menu */
+  .dropdown__item:hover .dropdown__menu {
+    opacity: 1;
+    top: 5.5rem;
+    pointer-events: initial;
+    transition: top .3s;
+  }
+
+  /* Show dropdown submenu */
+  .dropdown__subitem:hover > .dropdown__submenu {
+    opacity: 1;
+    top: 0;
+    pointer-events: initial;
+    transition: top .3s;
+  }
+ 
+}
+/*-------------------------responsive navbar design new starts here------------------*/
+
+/*-------------------------responsive navbar design new ends here ------------------*/
+
+/*---------------sec-01 css starts here--------------*/
+.sec-011 {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ede6d6;
+}
+
+.slide-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  border: 3px solid #ede6d6;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.slide-container .slides {
+  width: 100%;
+  height: 100%; /* Corrected the height calculation */
+  position: relative;
+  overflow: hidden; /* Added to hide images overflowing */
+}
+
+.slide-container .slides img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  left: 100%; /* Start off-screen to the right */
+  transition: left 0.5s ease-in-out; /* Animation for sliding */
+}
+
+.slide-container .slides img.active {
+  left: 0; /* Position the active image in the view */
+}
+span.next, span.prev{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 14px;
+  color: #eee;
+  font-size: 24px;
+  font-weight: bold;
+  transition: 0.5s;
+  border-radius: 3px;
+  user-select: none;
+  cursor: pointer;
+  z-index: 1;
+}
+span.next{
+  right: 20px;
+}
+span.prev{
+  left: 20px;
+}
+span.next:hover, span.prev:hover{
+  background-color: #ede6d6;
+  opacity: 0.8;
+  color: #222;
+}
+.dotsContainer{
+  position: absolute;
+  bottom: 5px;
+  z-index: 3;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.dotsContainer .dot{
+  width: 15px;
+  height: 15px;
+  margin: 0px 2px;
+  border: 3px solid #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+
+}
+.dotsContainer .active{
+  background-color: #555;
+}
+@keyframes next1{
+  from{
+    left: 0%
+  }
+  to{
+    left: -100%;
+  }
+}
+@keyframes next2{
+  from{
+    left: 100%
+  }
+  to{
+    left: 0%;
+  }
+}
+
+@keyframes prev1{
+  from{
+    left: 0%
+  }
+  to{
+    left: 100%;
+  }
+}
+@keyframes prev2{
+  from{
+    left: -100%
+  }
+  to{
+    left: 0%;
+  }
+}
+/*---------------sec-01 css ends here--------------*/
+/*---------------sec-00 css starts here--------------*/
+.sec-00 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex: 1 1 25%;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 80vh;
+  background-color: #fff;
+}
+
+.sec-00heading {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 100%;
+}
+
+.sec-00heading h1 {
+  font-size: 3rem;
+  margin-top: 30px;
+}
+
+.outlet {
+  position: relative;
+  border: 2px solid #000;
+  height: 400px;
+  margin-top: 40px;
+  width: 400px;
+  text-align: center;
+  background-image: url(images/gimg11.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  border-radius: 30px;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.outlet:hover {
+  transform: scale(1.1);
+
+}
+
+.outlet:hover .outlettext {
+  display: block;
+}
+
+.outlet .outlettext {
+  position: absolute;
+  text-align: center;
+  display: none;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  padding: 40px;
+  z-index: 1;
+}
+
+.outlettext .btn7 {
+  /* position: absolute; */
+  width: 150px;
+  height: 40px;
+  /* padding: 10px; */
+  margin-top: 80px;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bolder;
+
+}
+
+.outlettext .btn7 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.outlettext .btn7:hover {
+  background-color: red;
+  color: white;
+  font-weight: bolder;
+  border: 2px solid white;
+  ;
+}
+
+.btn7:hover {
+  color: #fff;
+  transition: 0.3s ease-in-out
+}
+
+/* .btn7 a:hover{
+  color: white;
+} */
+.outlet::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+  z-index: 0;
+
+}
+
+.outlet:hover::after {
+  transform: translateY(0);
+
+}
+
+.outlet:hover .outlettext {
+  bottom: 50%;
+  transform: translateY(50%);
+  transition: bottom 0.5s ease, transform 0.5s ease;
+}
+@media only screen and (min-width:200px) and (max-width:1336px){
+  .sec-00{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+  .outlet{
+    display: flex;
+    height: 300px;
+    width: 300px;
+  }
+}
+
+@media only screen and (min-width:768px) and (max-width:2000px){
+  .sec-00{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+  .outlet{
+    display: flex;
+    height: 600px;
+    width: 600px;
+  }
+}
+
+/*---------------sec-00 css ends here--------------*/
+/*---------------sec-02 css starts here--------------*/
+.sec-02 {
+  display: flex;
+  flex-wrap: wrap; /* Allows content to wrap on smaller screens */
+  flex-direction: row;
+  width: 100%;
+  padding: 20px; /* Adjust padding as needed */
+  
+  
+}
+
+
+.left-container02 {
+  flex: 1 0 50%; /* Takes up half of the available width on larger screens */
+  width: 100%; /* Limits width on larger screens */
+  padding-right: 20px; /* Adds spacing between left and right containers */
+}
+.lefttextcontainer02 h5{
+  text-align: center;
+  font-size: 1.7rem;
+  padding: 20px;
+}
+.lefttextcontainer02 h2{
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 20px 0px;
+  color: #000;
+}
+.lefttextcontainer02 p{
+  font-size: 1.7rem;
+  margin: 20px 0px;
+  line-height: 1.7;
+  color: #8f8e8e;
+  padding: 10px 0px;
+  text-align: center;
+}
+.right-container02 {
+  flex: 1 1 50%; 
+  max-width: 50%; 
+  padding-left: 20px; /* Adds spacing between left and right containers */
+}
+.content2 .image03 img{
+  width: 100%;
+  align-items: center;
+  height: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+.content1, .content2 {
+  margin-bottom: 20px; /* Adds spacing between content sections */
+}
+@media only screen and (min-width:200px) and (max-width:1336px){
+  .sec-02{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: center;
+  }
+  .left-container02{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: center;
+  }
+  .content1{
+    display: flex;
+    flex-direction: column;
+  }
+  .lefttextcontainer02,.righttextcontainer02{
+    text-align: center;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .righttextcontainer02 h3,.righttextcontainer02 p{
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+
+  }
+  .lefttextcontainer02 p{
+    font-size: 1rem;
+    text-align: left;
+    align-items: center;
+    padding: 25px;
+  }
+  .righttextcontainer02 p,.righttextcontainer02 h3{
+    padding: 20px 0px;
+    text-align: left;
+  }
+  .image02,.image03{
+    align-items: center;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+  .right-container02,.content2{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+}
+/*---------------sec-02 css ends here--------------*/
+/*---------------sec-03 css starts here--------------*/
+.sec-03 {
+  background-color: rgb(27, 27, 27);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  margin-top: 80px;
+}
+
+.sec-03heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1170px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 20px;
+  color: white;
+  position: relative;
+}
+
+.sec-03heading h4 {
+  font-weight: bold;
+}
+
+.sec-03heading h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  /* Adjust as needed */
+}
+
+.lined {
+  position: relative;
+  display: inline-block;
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.lined::before,
+.lined::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 150%;
+  height: 1px;
+  background-color: white;
+}
+
+.lined::before {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.lined::after {
+  right: 0;
+  transform: translateX(100%);
+}
+
+.menutext {
+  display: flex;
+  max-width: 1170px;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 30px;
+  box-sizing: border-box;
+  margin-top: 20px;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.menuleftcontainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.menuleftcontent {
+  border-bottom: 1px dotted white;
+  border-width: 2px;
+}
+
+.menuleftcontent h3 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  padding: 10px 0;
+  font-weight: bold;
+  text-align: left;
+}
+
+.menuleftcontent p {
+  text-align: left;
+  margin-bottom: 20px;
+  font-size: 0.8rem;
+  color: #8f8e8e;
+}
+
+.menuleftbutton {
+  display: flex;
+  align-items: flex-end;
+  /* Align button to the end of .menutext */
+  margin-top: auto;
+  /* Pushes the button to the bottom */
+}
+
+.btn1 {
+  position: absolute;
+  padding: 15px 40px;
+  /* Example padding for button */
+  /* background-color: rgb(27, 27, 27);  */
+  background-color: red;
+  color: white;
+  /* Example text color for button */
+
+  /* Example border radius for button */
+  cursor: pointer;
+  /* Example cursor style for button */
+  border: 2px solid white;
+  font-weight: bold;
+
+}
+
+.btn1:hover {
+  background-color: white;
+  color: rgb(27, 27, 27);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.lines {
+  position: relative;
+  display: inline-block;
+  margin: 30px 0px;
+  padding: 15px 30px;
+}
+
+.lines::before,
+.lines::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 280%;
+  height: 1px;
+  background-color: white;
+}
+
+.lines::before {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.lines::after {
+  right: 0;
+  transform: translateX(100%);
+}
+@media only screen and (min-width:200px) and (max-width:1336px){
+  .sec-03heading p{
+    text-align: center;
+  }
+}
+
+/*---------------sec-03 css ends here--------------*/
+/*---------------sec-04 css starts here--------------*/
+.sec-04 {
+  display: flex;
+  flex-direction: column;
+  min-height: 30vh;
+  width: 100%;
+  background: url(images/signeture-bg.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+
+.sec-04heading {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  margin-top: 5%;
+  color: #000;
+
+}
+
+.sec-04heading h4,
+h2 {
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.sec-04heading h2 {
+  font-size: 2.5rem;
+
+}
+
+.sec-04heading h5 {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/*---------------sec-04 css ends here--------------*/
+/*---------------sec-05 css starts here--------------*/
+.sec-05 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #fff;
+  width: 100%;
+  padding: 60px 20px; /* Reduced padding for better responsiveness */
+  box-sizing: border-box;
+}
+
+.sec-05 h5, .sec-05 h1, .sec-05 p {
+  text-align: center;
+}
+
+.sec-05 h5 {
+  font-size: 1.5rem;
+}
+
+.sec-05 h1 {
+  font-size: 2.5rem; /* Reduced font size for better responsiveness */
+  padding: 20px 0;
+}
+
+.sec-05 p {
+  font-size: 1.2rem; /* Reduced font size for better responsiveness */
+  color: #8f8e8e;
+  padding: 20px 0;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  gap: 40px;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center; /* Center items vertically */
+}
+
+.gallerycontainer {
+  flex: 1 1 10%;
+  display: flex;
+  justify-content: center;
+  transition: transform 0.3s; /* Smooth transition */
+}
+
+.gallerycontainer:hover {
+  cursor: pointer;
+  transform: scale(0.95); /* Slightly reduced scale for better visual effect */
+}
+
+.gallerycontainer img {
+  width: 100%;
+  height: auto;
+  max-width: 100%; /* Ensure image does not exceed container width */
+  display: block; /* Removes bottom space under images */
+}
+
+@media only screen and (max-width: 1336px) {
+  .sec-05 {
+    padding: 40px 20px; /* Adjusted padding for smaller screens */
+  }
+
+  .sec-05 h1 {
+    font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+
+  .sec-05 p {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+
+  .content-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .gallerycontainer {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gallerycontainer img {
+    width: 100%;
+    height: auto;
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sec-05 h5 {
+    font-size: 1.2rem; /* Adjust font size for smaller screens */
+  }
+
+  .sec-05 h1 {
+    font-size: 1.8rem; /* Adjust font size for smaller screens */
+  }
+
+  .sec-05 p {
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
+  }
+
+  .gallerycontainer {
+    flex: 1 1 100%; /* Make each image container take full width */
+    padding: 10px;
+  }
+
+  .gallerycontainer img {
+    width: 100%; /* Ensure images take full width */
+  }
+}
+
+/*---------------sec-05 css ends here--------------*/
+/*---------------sec-06 css starts here--------------*/
+.sec-06 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff;
+  /* Removed margin to prevent horizontal overflow */
+  padding: 38px;
+  margin-top: 90px;
+  box-sizing: border-box;
+}
+
+.teamleftcontainer,
+.teamrightcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* Set to 45% to account for padding/margin */
+  width: 45%;
+  box-sizing: border-box;
+}
+
+.teamcontent .teamtext h2 {
+  color: black;
+  font-size: 3rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.image02 img{
+  width: 400px;
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.image03 img{
+  width: 400px;
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.teamimage img{
+  width: 400px;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.teamrightcontainer img{
+  width: 400px;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.teamcontent .teamtext p {
+  line-height: 1.4;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  color: #8f8e8e;
+  text-align: left;
+  align-items: left;
+  justify-content: left;
+}
+
+.teamrightcontainer {
+  margin: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#image1 {
+  width: 80%;
+  height: auto;
+  height: 400px;
+  width: 400px;
+}
+
+#image2 {
+  width: 100%;
+  height: auto;
+  margin-top: 60px;
+  height: 400px;
+  width: 400px;
+}
+/*--------------mobile responsive design for sec-06------------------*/
+@media only screen and (min-width:200px) and (max-width:1336px){
+  .teamimage img{
+    width: 200px;
+    height: 200px;
+  }
+  .teamrightcontainer img{
+    width: 50px;
+    height: 50px;
+  }
+}
+/*--------------mobile responsive design for sec-06------------------*/
+
+/*---------------sec-06 css ends here--------------*/
+/*---------------sec-07  css starts here--------------*/
+
+.testimonial-section {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  background:url(images/p01.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 60vh;
+
+}
+
+.testimonial-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  margin-top: 70px;
+  justify-content: center;
+}
+
+.testimonial-content {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 80%; /* Ensures uniform size */
+  max-width: 500px;
+  min-height: 300px; /* Ensures uniform height */
+}
+
+.stars {
+  font-size: 1.5em; /* Increased font size */
+  color: #f5b942;
+}
+
+.testimonial-content p {
+  font-size: 1.2em; /* Increased font size */
+  margin: 20px 0;
+}
+
+.testimonial-author {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-author img {
+  width: 60px; /* Increased image size */
+  height: 60px; /* Increased image size */
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-author h3 {
+  margin: 10px 0 0;
+  font-size: 1.2em; /* Increased font size */
+  color: #333;
+}
+
+.navigation-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.navigation-dots .dot {
+  height: 12px; /* Increased dot size */
+  width: 12px; /* Increased dot size */
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.navigation-dots .dot.active {
+  background-color: #717171;
+}
+/*---------------sec-07  css ends here--------------*/
+/*---------------sec-08  css starts here------------*/
+.sec-08 {
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  max-width: 100%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 0px 20px;
+  
+}
+
+.reservation-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 900px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.reservation-container h2 {
+  font-size: 3rem;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin: 20px;
+  margin-top: 2vh;
+}
+
+.reservation-container p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #8f8e8e;
+}
+.apps{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 60px;
+  padding: 30px;
+  box-sizing: border-box;
+  
+}
+.apps p{
+  color: #000;
+  font-size: 2.5rem;
+}
+
+
+
+.reservation-container #ph {
+  font-size: 3rem;
+  color: black;
+  gap: 10px;
+  font-weight: bolder;
+}
+@media only screen and (min-width:200px) and (max-width:1336px){
+  .reservation-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: center;
+
+  }
+  .reservation-container h2, .reservation-container p{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    height: auto;
+  }
+  .apps{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    padding: 20px 0px;
+
+  }
+  #ph{
+    display: block;
+    flex-wrap: nowrap;
+  }
+}
+
+
+@media only screen and (min-width: 200px) and (max-width: 1336px) {
+  /* .sec-01 {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    padding: 20px; 
+    box-sizing: border-box;
+  }
+
+  .sec-01heading {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .sec-01heading h3,
+  .sec-01heading h1,
+  .sec-01heading p {
+    margin: 10px 0;
+    width: 100%;
+  } */
+
+  .hamburger-menu {
+    width: 100%;
+    text-align: left;
+    box-sizing: border-box;
+    padding: 10px 20px; /* Adjust padding as needed */
+  }
+
+ /*sec-02 resonsive design---------------*/
+ @media (max-width: 1336px) {
+  .left-container02, .right-container02 {
+     max-width: 100%; /* Full width on smaller screens */
+     padding: 0; /* Reset padding on smaller screens */
+  }
+  .left-container02 .image02 img{
+    margin-left: 10px;
+    width: 300px;
+    height: auto;
+  }
+  .right-container02 .image03 img{
+    width: 300px;
+    height: auto;
+  }
+  .righttextcontainer02 h3{
+    font-size: 1.5rem;
+    margin-right: 20px;
+  }
+  .righttextcontainer02 p{
+    font-size: 0.8rem;
+    margin-left: 20px;
+  }
+  /*------------sec-03 resonsive design starts here---------------*/
+  .sec-00{
+    overflow-x: hidden;
+    width: 100%;
+  }
+  /* .sec-01{
+    overflow-x: hidden;
+    width: 100%;
+  } */
+  .sec-02{
+    overflow-x: hidden;
+    width: 100%;
+  }
+  .sec-03{
+    overflow-x: hidden;
+    width: 100%;
+  }
+  .sec-04{
+    overflow-x: hidden;
+    width: 100%;
+  }
+  .sec-05{
+    overflow-x: hidden;
+    width: 100%;
+  }
+  /*------------sec-03 resonsive design ends here---------------*/
+  /*------------sec-06 resonsive design starts here---------------*/
+  .sec-06 {
+    flex-direction: column;
+    padding: 20px; /* Adjust padding for small screens */
+  }
+
+  .teamleftcontainer,
+  .teamrightcontainer {
+    width: 100%; /* Full width for small screens */
+    padding: 0; /* Remove padding to prevent overflow */
+    margin: 0; /* Remove margin to prevent overflow */
+  }
+
+  .teamcontent .teamtext h2 {
+    font-size: 2rem; /* Adjust font size for small screens */
+  }
+
+  .teamcontent .teamtext p {
+    font-size: 1rem; /* Adjust font size for small screens */
+  }
+
+  #image1,
+  #image2 {
+    width: 100%; /* Full width for small screens */
+    margin-top: 20px;
+  }
+
+  #image2 {
+    margin-top: 20px; /* Adjust margin for small screens */
+  }
+   /*------------sec-06 resonsive design ends here---------------*/
+  .sec-07{
+    overflow-x: hidden;
+    width: 100%;
+  }
+  .sec-08{
+    overflow-x: hidden;
+    width: 100%;
+  }
+  .footer1{
+    overflow-x: hidden;
+  }
+ 
+}
+ /*------------sec-02 resonsive design---------------*/
+
+  .sec-06 {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px; /* Adjust padding as needed */
+  }
+
+  .teamleftcontainer,
+  .teamrightcontainer {
+    width: 100%;
+    align-items: center;
+  }
+
+  .teamcontent {
+    width: 100%;
+    align-items: center;
+  }
+
+  .teamtext {
+    text-align: center;
+    padding: 0 20px; /* Adjust padding as needed */
+  }
+
+  .teamimage img,
+  .teamrightcontainer img {
+    width: 90%;
+    height: auto;
+    margin-bottom: 10px; /* Adjust margin as needed */
+  }
+}
+
+
+/*---------------sec-08  css ends here--------------*/
+/*---------------footer class css starts here------------*/
+.footer1 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 100vh;
+  /* background-color: rgb(27, 27, 27); */
+  background-color: #e3010f;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.rows {
+  display: flex;
+  flex-direction: row;
+  max-width: 1170px;
+
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 20px;
+  box-sizing: border-box;
+
+}
+
+.rows:nth-child(1),
+.rows:nth-child(2),
+.rows:nth-child(3) {
+  gap: 70px;
+}
+
+.rows:nth-child(4) {
+  margin-left: 20px;
+}
+
+.row1 {
+  display: flex;
+  color: white;
+  width: 100%;
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  justify-content: center;
+  margin: auto;
+  margin-top: 100px;
+  flex: 1 1 25%;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.row1 h2 {
+  font-size: 1.8rem;
+}
+
+.row1 .col1 p {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  line-height: 2;
+  text-align: left;
+  justify-content: left;
+  align-items: left;
+}
+
+.row1 .col2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+.row1 .col2 ul li {
+  list-style: none;
+  padding: 10px 0px;
+}
+
+.row1 .col2 ul li a {
+  list-style: none;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.row1 .col2 ul li a:hover {
+  color: gray;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.row1 .col3 {
+  font-size: 1rem;
+
+}
+
+.col3 span {
+  display: block;
+  /* Ensures each span is on a new line */
+  margin-bottom: 10px;
+  /* Adjust the bottom margin as needed */
+}
+
+.col3 p {
+  margin-left: 40px;
+  /* Keep your existing left margin for paragraphs */
+}
+
+.col3 i {
+  width: 30px;
+  height: 30px;
+}
+
+/*------------------new dropdown style here----------------*/
+/* Adjust font size and alignment for footer links */
+.footer1 .nav__link {
+  font-size: 10px;
+  /* Adjust font size as needed */
+  padding: 10px 15px;
+  /* Adjust padding for links */
+  display: block;
+  /* Ensure links take full width */
+  text-decoration: none;
+  color: #333;
+  /* Adjust link color */
+}
+
+/* Style the dropdown arrow for outlets */
+.footer1 .dropdown__arrow {
+  margin-left: 0px;
+}
+
+/* Style the dropdown submenus */
+.footer1 .dropdown__menu {
+  position: absolute;
+  top: 40px !important;
+  left: 0;
+  display: none;
+  /* Hide dropdown menu by default */
+  background-color: #fff;
+  text-align: center;
+  justify-content: center;
+  color: black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  font-size: 12px;
+  margin-bottom: 20px;
+  /* Adjust submenu font size */
+}
+
+.footer1 .dropdown__submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: none;
+  /* Hide submenu by default */
+  background-color: transparent;
+  color: black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  font-size: 12px;
+  /* Adjust submenu font size */
+}
+
+
+/* Ensure submenus appear properly */
+.footer1 .dropdown__item:hover .dropdown__menu {
+  display: block;
+  /* Show dropdown menu on hover */
+}
+
+.footer1 .dropdown__subitem:hover .dropdown__submenu {
+  display: block;
+  /* Show submenu on hover */
+}
+
+.footer1 .nav__menu {
+  position: relative;
+  /* Ensure parent has relative positioning */
+  z-index: 1;
+  /* Set higher z-index for the nav menu */
+}
+
+.footer1 .dropdown__menu,
+.footer1 .dropdown__submenu {
+  z-index: 2;
+  /* Set even higher z-index for dropdowns to appear above other content */
+}
+
+/*------------------new dropdown style ends here----------------*/
+
+#s2 {
+  margin-top: 20px;
+  /* Add top margin specifically to the #s2 span */
+}
+
+#dp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+
+}
+
+#dp:hover {
+  color: gray;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+#dp i {
+  margin-right: 10px;
+}
+
+.row1 .social {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.row1 .social i:hover {
+  color: gray;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+footer hr {
+  margin-bottom: 40px;
+}
+
+.copyright {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.copy,
+.copy2 {
+  color: white;
+  font-weight: bold;
+}
+.row1 .social a{
+  color: #fff;
+}
+.copy:hover,.copy2:hover{
+  border-bottom: 1px solid #fff;
+  width: fit-content;
+  cursor: pointer;
+}
+
+/* Media Queries for Responsive Design */
+@media only screen and (max-width: 768px) {
+  .rows {
+    width: 100%;
+    flex-direction: column;
+    margin: 0;
+    /* Stack rows vertically */
+  }
+
+  .row1 {
+    margin-top: 40px;
+    /* Increase top margin for better spacing */
+  }
+
+  .row1 .col2 ul li {
+    flex: 0 0 100%;
+    /* Full width on smaller screens */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .row1 .social {
+    margin-top: 10px;
+    /* Reduce margin for social icons */
+  }
+
+  .social {
+    flex-direction: column;
+  }
+}
+
+/* Adjustments for Mobile Devices */
+@media only screen and (max-width: 1336px) {
+  .footer1 .col2 ul {
+    padding-left: 0;
+    /* Remove left padding from ul */
+    margin-bottom: 20px;
+    /* Add margin bottom for better spacing */
+  }
+
+  .footer1 .dropdown__item {
+    position: relative;
+    /* Ensure dropdown items are relative for absolute positioning */
+  }
+
+  .footer1 .dropdown__menu {
+    display: none;
+    /* Hide dropdown menu by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    /* Background color for dropdown */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Box shadow for dropdown */
+    z-index: 1;
+    /* Ensure dropdown appears above other elements */
+    width: 100%;
+    /* Full width of the parent */
+  }
+
+  .footer1 .dropdown__item:hover .dropdown__menu {
+    display: block;
+    /* Show dropdown menu on hover */
+  }
+
+  .footer1 .dropdown__link {
+    padding: 10px 20px;
+    /* Adjust padding for main dropdown items */
+    cursor: pointer;
+    color: #fff;
+    /* Text color for main dropdown items */
+    text-decoration: none;
+    display: block;
+    /* Ensure block display for full width */
+  }
+
+  .footer1 .dropdown__subitem {
+    padding: 10px 20px;
+    /* Adjust padding for subitems */
+  }
+
+  .footer1 .dropdown__submenu {
+    display: none;
+    /* Hide submenu by default */
+  }
+
+  .footer1 .dropdown__subitem:hover .dropdown__submenu {
+    display: block;
+    /* Show submenu on hover */
+  }
+
+  .footer1 .dropdown__sublink {
+    padding: 8px 20px;
+    /* Adjust padding for submenu links */
+    color: #333;
+    /* Text color for submenu links */
+    text-decoration: none;
+    display: block;
+    /* Ensure block display for full width */
+  }
+}
+
+
+/*---------------footer class css ends here------------*/
