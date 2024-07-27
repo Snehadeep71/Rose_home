@@ -651,15 +651,6 @@ span.next:hover, span.prev:hover{
   }
 }
 
-@media only screen and (min-width:768px) and (max-width:1336px){
-
-  .outlet{
-    display: flex;
-    height: 600px;
-    width: 600px;
-  }
-}
-
 /*---------------sec-00 css ends here--------------*/
 /*---------------sec-02 css starts here--------------*/
 .sec-02 {
